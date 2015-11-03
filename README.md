@@ -2,6 +2,13 @@
 
 Goal: Given an integer, return the shortest combination of squares that sums to this number.
 
+Example: 
+```
+472 = 21^2, 5^2, 2^2, 1^2, 1^2
+7   = 2^2, 1^2, 1^2, 1^2
+89  = 8^2, 5^2
+```
+
 ## Research and assumptions
 
 There are some variations of this puzzle that include exercises in summing various sequences to get
@@ -40,7 +47,7 @@ My second attempt has the potential to iterate through many more options and com
 
 Math on its own isn't my strong suit, however, I see some patterns and suspect that there's a more obvious algorithm somewhere that I am just not aware of.  In real life, when encountered with an algorithm problem like this, I'd ask for advice and I've hired an actual mathematician for help in translating R code and for advice on efficiency, best route, etc.  Clarity.fm is one great place to find people for quick answers and help.  
 
-I found several examples where the best set of squares included a large prime number. If, instead of iterating downward from the point where I did, you iterated through prime squares, would it be faster for results that do have prime factors in the optimized set?  I don't know, but I would like to try this at some point. Obviously all results did not include a large prime, so this might be an optimization that would waste more time in cases where it isn't part of the correct answer.
+I found several examples where the best set of squares included a large prime number. If, instead of iterating downward from the point where I did, you iterated through prime squares, would it be faster for results that do have prime factors in the optimized set?  I don't know, but I would like to try this at some point. Obviously all results did not include a large prime, so this might be an optimization that would waste more time in cases where it isn't part of the correct answer. 
 
 ## Usage
 
