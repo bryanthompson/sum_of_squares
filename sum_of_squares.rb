@@ -43,19 +43,49 @@ class SumOfSquares
 
     puts "Solving for #{number}"
 
-    squares = []
+    possible_solutions = []
+    best_solution = nil
     remainder = number
 
-    while remainder > 0
-      # First, get the biggest square for our number
-      square = largest_square(remainder)
-      # add it to our array of results
-      squares.push(square)
-      # now subtract it from our current number so we can find the biggest remaining square
-      remainder = remainder - square*square
+    # starting at the halfway point and working our way down because we're going to end up with several
+    # possible solutions.
+    halfway  = Math.sqrt(number).floor
+
+    while halfway > 0 do
+      squares = []
+      puts "*" * 50
+      puts halfway
+
+      square = halfway
+      squares.push square
+      remainder = number - square*square
+
+      while remainder > 0
+        # First, get the biggest square for our number
+        square = largest_square(remainder)
+
+        # before we go any further, if this square exists in any possible solution we already
+        # found, we should bail out, because we don't need to repeat our work.
+
+        # add it to our array of results
+        squares.push(square)
+        # now subtract it from our current number so we can find the biggest remaining square
+        remainder = remainder - square*square
+      end
+
+      puts squares.inspect
+
+      # there's no reason to continue if we get a result with 1 or 2 squares, since it is clearly the optimal solution
+      if squares.length == 1 || squares.length == 2
+        puts "BEST SOLUTION"
+        best_solution = squares
+        break
+      end
+
+      halfway -= 1
     end
 
-    puts squares.map { |n| "#{n}^2" }.inspect
+    puts possible_solutions.inspect
 
     # if this were feeding the data to another function rather than just echoing to the screen,
     # we could just return squares and hand them off.  Instead, we'll exit gracefully.
