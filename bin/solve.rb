@@ -14,4 +14,6 @@ require_relative "../sum_of_squares.rb"
 
 ENV["DEBUG"] = "TRUE"
 
-puts SumOfSquares.solve(ARGV).inspect
+result = SumOfSquares.solve(ARGV)
+
+puts result.map { |s| "#{s}^2" }.join(", ")
