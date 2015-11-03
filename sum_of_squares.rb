@@ -38,7 +38,6 @@ class SumOfSquares
 
     possible_solutions = []
     best_solution = nil
-    have_result_with_3 = false
     remainder = number
 
     # setting our halfway point to the square root of our number since it would be the biggest possible square
@@ -83,10 +82,9 @@ class SumOfSquares
 
     end
 
-    # if we got this far, the shortest result will have either 3 or 4 squares, and we'll need more
-    # information before deciding which possibility is actually the one we want.
-
     unless best_solution
+      # if we got this far, the shortest result will have either 3 or 4 squares, and we'll need more
+      # information before deciding which possibility is actually the one we want.
       best_solution = select_best_solution(possible_solutions)
     end
 
